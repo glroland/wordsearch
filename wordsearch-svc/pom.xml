@@ -1,0 +1,81 @@
+<project>
+    <groupId>com.glroland.wordsearch</groupId>
+	<artifactId>wordsearch-svc</artifactId>
+    <version>1.0</version>
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>jar</packaging>
+
+    <properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<dependency-check-format>HTML</dependency-check-format>
+	    <dependency-check-failscore>8</dependency-check-failscore>
+    </properties>
+
+	<dependencies>
+   		<dependency>
+       		<groupId>org.springframework.boot</groupId>
+       		<artifactId>spring-boot-starter-web</artifactId>
+    		<version>2.0.3.RELEASE</version>
+   		</dependency>
+       	<dependency>
+           	<groupId>org.springframework.boot</groupId>
+           	<artifactId>spring-boot-starter-tomcat</artifactId>
+			<version>2.0.3.RELEASE</version>
+           	<scope>provided</scope>
+       	</dependency>
+        <dependency>
+    		<groupId>junit</groupId>
+    		<artifactId>junit</artifactId>
+    		<version>4.12</version>
+    	    <scope>test</scope>
+	    </dependency>
+	</dependencies>
+
+	<build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+		        <version>2.0.3.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+
+              <plugin>
+            <groupId>org.owasp</groupId>
+            <artifactId>dependency-check-maven</artifactId>
+            <version>1.4.0</version>
+            <configuration>
+                <format>${dependency-check-format}</format>
+		<failBuildOnCVSS>${dependency-check-failscore}</failBuildOnCVSS>
+		<skipProvidedScope>false</skipProvidedScope>
+                <skipRuntimeScope>false</skipRuntimeScope>
+            </configuration>
+<executions>
+	<execution>
+		<goals>
+			<goal>check</goal>
+		</goals>
+	</execution>
+</executions>
+        </plugin>
+
+    </plugins>
+</build>
+
+</project>
