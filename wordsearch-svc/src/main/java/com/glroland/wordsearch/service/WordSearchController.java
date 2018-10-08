@@ -19,13 +19,13 @@ public class WordSearchController {
     @RequestMapping("/generate")
     public Game generate(int width, int height)
     {
-    	return GameFactory.generate(width, height);
+    	return GameFactory.getInstance().generate(width, height);
     }
 
     @CrossOrigin(origins = "*")
     @RequestMapping("/generate")
     public Game generate()
     {
-    	return GameFactory.generate();
+    	return GameFactory.getInstance().generate();
     }
 }

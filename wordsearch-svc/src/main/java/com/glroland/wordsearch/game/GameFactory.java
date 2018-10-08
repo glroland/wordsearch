@@ -12,7 +12,7 @@ public class GameFactory {
 	
 	private static GameFactory instance = null;
 	
-	private static GameFactory getInstance() {
+	public static GameFactory getInstance() {
 		synchronized (GameFactory.class) {
 			if (instance == null)
 			{
